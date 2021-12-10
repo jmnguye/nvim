@@ -13,3 +13,8 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 let mapleader = "œ"
+set cursorline
+" color
+"
+highlight lineNr ctermbg=blue
+highlight lineNr ctermfg=white
