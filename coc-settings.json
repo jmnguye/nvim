@@ -1,0 +1,4 @@
+{
+    "python.formatting.black": "~/.local/bin/black",
+    "python.formatting.provider": "black"
+}

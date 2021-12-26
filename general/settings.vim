@@ -9,4 +9,12 @@ set hlsearch "highlight la research
 set expandtab
 set autoindent
 set noshowmode
+set tabstop=4
+set shiftwidth=4
+set expandtab
 let mapleader = "œ"
+set cursorline
+" color
+"
+highlight lineNr ctermbg=blue
+highlight lineNr ctermfg=white
