@@ -26,6 +26,9 @@ map("n", "<leader>sh", "<C-w>s") -- split horizontale
 map("n", "<leader>se", "<C-w>e") -- egalise les split
 map("n", "<leader>sq", "<C-w>q") -- quitte le split 
 
+-- vim-maximizer
+map("n", "<leader>sz", ":MaximizerToggle<CR>")
+
 -- gestion des tabs
 map("n", "<leader>to", ":tabnew<CR>") -- ouvre un nouveau tab 
 map("n", "<leader>tq", ":tabclose<CR>") -- ferme un tab 
@@ -36,3 +39,4 @@ map("n", "<leader>th", ":tabp<CR>") -- va au tab precedent
 map("n", ";;", "<Esc>")
 map("i", ";;", "<Esc>")
 map("v", ";;", "<Esc>")
+

@@ -9,13 +9,14 @@ local ensure_packer = function()
   end
   return false
 end
--- Autocommand qui rechearge neovim a chaque sauvegarde
+
 local packer_bootstrap = ensure_packer()
 
+-- Autocommand qui recharge neovim a chaque sauvegarde
 vim.cmd([[
   augroup packer_user_config
     autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+    autocmd BufWritePost plugins-setup.lua source <afile> | PackerSync
   augroup end
 ]])
 
@@ -25,10 +26,11 @@ if not status then
 end
 
 return require('packer').startup(function(use)
-  use("wbthomason/packer.nvim")
-  -- use 'wbthomason/packer.nvim' -- packer se gere lui meme comme plugin
+  use 'wbthomason/packer.nvim' -- packer se gere lui meme comme plugin
   use("bluz71/vim-nightfly-guicolors") -- preferred colorscheme
-  -- use { "bluz71/vim-nightfly-colors", as = "nightfly" }
+  use("christoomey/vim-tmux-navigator") -- gere tmux et la navigation entre les windows avec ctrl hjkl
+  use("szw/vim-maximizer") -- maximize et restore la fenetre courrante
+
   -- met en place directement la config apres avoir clone packer.nvim
   -- mettre ca a apres les lignes de chargement des plugins
 
