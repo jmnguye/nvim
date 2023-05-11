@@ -30,7 +30,12 @@ return require('packer').startup(function(use)
   use("bluz71/vim-nightfly-guicolors") -- preferred colorscheme
   use("christoomey/vim-tmux-navigator") -- gere tmux et la navigation entre les windows avec ctrl hjkl
   use("szw/vim-maximizer") -- maximize et restore la fenetre courrante
-
+  use("tpope/vim-surround") -- pour gérer le surround par des caracteres speciaux
+  use("vim-scripts/ReplaceWithRegister") -- remplace un groupe de mot par quelque chose du registre
+  use("numToStr/Comment.nvim") -- raccourci pour rajouter des commentaires avec gc
+  use("nvim-tree/nvim-tree.lua") -- gestionnaire de fichier
+  use("kyazdani42/nvim-web-devicons") -- un pack d'icone pour vim-tree
+  use("nvim-lualine/lualine.nvim") -- barre de neovim stylé
   -- met en place directement la config apres avoir clone packer.nvim
   -- mettre ca a apres les lignes de chargement des plugins
 

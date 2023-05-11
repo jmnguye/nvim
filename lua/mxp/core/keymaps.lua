@@ -40,3 +40,5 @@ map("n", ";;", "<Esc>")
 map("i", ";;", "<Esc>")
 map("v", ";;", "<Esc>")
 
+-- nvim-tree
+map("n", "<leader>e", ":NvimTreeToggle<CR>")
