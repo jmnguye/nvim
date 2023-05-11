@@ -3,4 +3,10 @@ if not status then
   return 
 end
 
-lualine.setup()
+local lualine_nightfly = require("lualine.themes.nightfly")
+
+lualine.setup({
+  options = {
+    theme = lualine_nightfly
+  }
+})

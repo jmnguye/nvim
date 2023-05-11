@@ -36,6 +36,9 @@ return require('packer').startup(function(use)
   use("nvim-tree/nvim-tree.lua") -- gestionnaire de fichier
   use("kyazdani42/nvim-web-devicons") -- un pack d'icone pour vim-tree
   use("nvim-lualine/lualine.nvim") -- barre de neovim stylé
+  use({'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }) -- pour la recherche dans les fichiers
+  use({'nvim-telescope/telescope.nvim', tag = '0.1.1', requires = { {'nvim-lua/plenary.nvim'} }}) -- telescope pour la recherche de fichier, il ya une dependenace a plenary pour les call async
+
   -- met en place directement la config apres avoir clone packer.nvim
   -- mettre ca a apres les lignes de chargement des plugins
 
