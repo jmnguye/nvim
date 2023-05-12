@@ -39,6 +39,12 @@ return require('packer').startup(function(use)
 -- en prerequis il faut installer ripgrep
   use({'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }) -- pour la recherche dans les fichiers
   use({'nvim-telescope/telescope.nvim', tag = '0.1.1', requires = { {'nvim-lua/plenary.nvim'} }}) -- telescope pour la recherche de fichier, il ya une dependenace a plenary pour les call async
+  use("hrsh7th/nvim-cmp") -- autocompletion
+  use("hrsh7th/cmp-buffer") -- permet de choisir des elements du buffer pour lautocompletion
+  use("hrsh7th/cmp-path") -- la meme qu'au dessus, mais avec des elements du path
+  use("L3MON4D3/LuaSnip") -- moteur pour l'utilisation des snippets
+  use("saadparwaiz1/cmp_luasnip") -- l'autocompletion
+  use("rafamadriz/friendly-snippets") -- des snippets multi language
 
   -- met en place directement la config apres avoir clone packer.nvim
   -- mettre ca a apres les lignes de chargement des plugins
