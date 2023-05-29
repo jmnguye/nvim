@@ -50,6 +50,7 @@ return require('packer').startup(function(use)
   use("neovim/nvim-lspconfig") -- configuration serveur lsp
   use("hrsh7th/cmp-nvim-lsp")  -- une sorte dextended completion
   use({"glepnir/lspsaga.nvim", branch = "main"}) -- ameliore lspconfig
+  -- il faut installer nerdfonts dans ~/.local/share/fonts pour que cela fonctionne correctement
   use("onsails/lspkind.nvim") -- des icones a la vscode
 
   -- met en place directement la config apres avoir clone packer.nvim

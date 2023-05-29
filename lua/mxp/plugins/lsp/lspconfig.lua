@@ -8,15 +8,10 @@ if not cmp_nvim_lsp_status then
   return
 end
 
-local pyright_status, pyrightconfig = pcall(require, "pyright")
-if not pyright_status then
-  return
-end
-
 local keymap = vim.keymap
 
 -- active les keybinds pour les servers lsp dispo
-local on_attach = function(client, bufnr)
+local on_attach = function(bufnr)
 
     -- keybind options
   local opts = { noremap = true, silent = true, buffer = bufnr }
@@ -40,73 +35,75 @@ end
 -- used to enable autocompletion (assign to every lsp server config)
 local capabilities = cmp_nvim_lsp.default_capabilities()
 
+-- Change the Diagnostic symbols in the sign column (gutter)
+local signs = { Error = " ", Warn = " ", Hint = "ﴞ ", Info = " " }
+for type, icon in pairs(signs) do
+  local hl = "DiagnosticSign" .. type
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+end
+
 -- on configure chaque ensure_installed
-pyrightconfig.setup({
+lspconfig["pyright"].setup({
   capabilities = capabilities,
   on_attach = on_attach,
 })
 
-tsserver.setup({
+lspconfig["tsserver"].setup({
   capabilities = capabilities,
   on_attach = on_attach,
 })
 
-html.setup({
+lspconfig["html"].setup({
   capabilities = capabilities,
   on_attach = on_attach,
 })
 
-ansible.setup({
+lspconfig["ansiblels"].setup({
   capabilities = capabilities,
   on_attach = on_attach,
 })
 
-bashls.setup({
+lspconfig["bashls"].setup({
   capabilities = capabilities,
   on_attach = on_attach,
 })
 
-dockerls.setup({
+lspconfig["dockerls"].setup({
   capabilities = capabilities,
   on_attach = on_attach,
 })
 
-docker_compose_language_service.setup({
+lspconfig["docker_compose_language_service"].setup({
   capabilities = capabilities,
   on_attach = on_attach,
 })
 
-jsonls.setup({
+lspconfig["jsonls"].setup({
   capabilities = capabilities,
   on_attach = on_attach,
 })
 
-tsserver.setup({
+lspconfig["tsserver"].setup({
   capabilities = capabilities,
   on_attach = on_attach,
 })
 
-marksman.setup({
+lspconfig["marksman"].setup({
   capabilities = capabilities,
   on_attach = on_attach,
 })
 
-pyright.setup({
+lspconfig["sqlls"].setup({
   capabilities = capabilities,
   on_attach = on_attach,
 })
 
-sqlls.setup({
+lspconfig["lemminx"].setup({
   capabilities = capabilities,
   on_attach = on_attach,
 })
 
-lemminx.setup({
-  capabilities = capabilities,
-  on_attach = on_attach,
-})
-
-yamlls.setup({
+lspconfig["yamlls"].setup({
   capabilities = capabilities,
   on_attach = on_attach,
 })

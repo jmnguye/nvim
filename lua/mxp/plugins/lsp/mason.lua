@@ -11,6 +11,7 @@ end
 mason.setup()
 
 mason_lspconfig.setup({
+  -- la liste des serveurs que mason doit installer
   ensure_installed = {
     "lua_ls",
     "tsserver",
@@ -26,5 +27,7 @@ mason_lspconfig.setup({
     "sqlls",
     "lemminx",
     "yamlls"
-  }
+  },
+  -- auto-install configured servers (with lspconfig)
+  automatic_installation = true, -- not the same as ensure_installed
 })

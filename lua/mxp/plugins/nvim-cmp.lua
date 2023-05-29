@@ -8,8 +8,8 @@ if not luasnip_status then
   return
 end
 
-local lspking_status, lspkind = pcall(require, "lspkind")
-if not lspkin_status then
+local lspkind_status, lspkind = pcall(require, "lspkind")
+if not lspkind_status then
   return
 end
 
