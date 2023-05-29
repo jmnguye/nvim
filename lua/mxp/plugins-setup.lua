@@ -45,6 +45,12 @@ return require('packer').startup(function(use)
   use("L3MON4D3/LuaSnip") -- moteur pour l'utilisation des snippets
   use("saadparwaiz1/cmp_luasnip") -- l'autocompletion
   use("rafamadriz/friendly-snippets") -- des snippets multi language
+  use("williamboman/mason.nvim") -- gestion et installation serveur lsp
+  use("williamboman/mason-lspconfig.nvim") -- fait le lien entre mason et nvim-lspconfig
+  use("neovim/nvim-lspconfig") -- configuration serveur lsp
+  use("hrsh7th/cmp-nvim-lsp")  -- une sorte dextended completion
+  use({"glepnir/lspsaga.nvim", branch = "main"}) -- ameliore lspconfig
+  use("onsails/lspkind.nvim") -- des icones a la vscode
 
   -- met en place directement la config apres avoir clone packer.nvim
   -- mettre ca a apres les lignes de chargement des plugins
