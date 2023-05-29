@@ -49,3 +49,6 @@ map("n", "<leader>fg", "<cmd>Telescope live_grep<cr>") -- chercher du texte dans
 map("n", "<leader>fc", "<cmd>Telescope grep_string<cr>") -- cherche le contenu du texte sur lequel le curseur se situe dans le projet
 map("n", "<leader>fb", "<cmd>Telescope buffers<cr>") -- montre le buffer actif
 map("n", "<leader>fh", "<cmd>Telescope help_tags<cr>")
+
+-- diag des erreurs en mode bule
+map("n", "<leader>er", ":lua vim.diagnostic.open_float({ border = 'rounded' })<CR>")
