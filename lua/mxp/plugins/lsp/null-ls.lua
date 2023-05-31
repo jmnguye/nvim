@@ -14,14 +14,16 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 null_ls.setup({
 	-- setup formatters & linters
 	sources = {
-		formatting.prettier, -- js/ts formatter
+		formatting.prettier.with({ "javascript" }), -- js/ts formatter
 		formatting.stylua, -- lua formatter
 		formatting.black.with({
 			filetypes = { "python" },
 		}), -- python formatter
-		formatting.isort, -- python formatter
 		formatting.shfmt, -- bash formatter
-		diagnostics.flake8,
+		diagnostics.flake8.with({
+			extra_args = { "--max-line-length", "88", "--extend-ignore", "E203" },
+			-- pour que flake8 soit compatible avec black
+		}),
 		formatting.codespell,
 		diagnostics.eslint_d.with({ -- js/ts linter
 			-- only enable eslint if root has .eslintrc.js (not in youtube nvim video)
