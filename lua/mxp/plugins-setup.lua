@@ -65,6 +65,7 @@ return require("packer").startup(function(use)
 	-- auto closing
 	use("windwp/nvim-autopairs") -- autoclose parens, brackets, quotes, etc...
 	use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" }) -- autoclose tags
+	use("ray-x/lsp_signature.nvim") -- pour la signature des functions
 
 	-- met en place directement la config apres avoir clone packer.nvim
 	-- mettre ca a apres les lignes de chargement des plugins
