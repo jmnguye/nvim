@@ -67,7 +67,7 @@ return require("packer").startup(function(use)
 	use("jose-elias-alvarez/null-ls.nvim") -- permet d'injecter du code non LSP via lua
 	use("jayp0521/mason-null-ls.nvim") -- bride entre mason et null-ls
 	use({
-		"nvim-treesitter/nvim-treesitter",
+		"nvim-treesitter/nvim-treesitter", -- Highlight, edit, and navigate code
 		run = function()
 			local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
 			ts_update()

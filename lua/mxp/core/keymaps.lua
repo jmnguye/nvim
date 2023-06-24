@@ -63,3 +63,25 @@ map("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>") -- jump to next diagnost
 map("n", "K", "<cmd>Lspsaga hover_doc<CR>") -- show documentation for what is under cursor
 map("n", "gt", "<cmd>Lspsaga peek_type_definition<CR>") -- affiche la doc du typage en mode fenetre
 map("n", "gt", "<cmd>Lspsaga goto_type_definition<CR>") -- va a la def du typage
+
+-- telescope
+require("telescope").setup({
+	-- configure custom mappings
+	defaults = {
+		mappings = {
+			-- ces raccourcis fonctionne en mode insert
+			i = {
+				["<C-k>"] = require("telescope.actions").move_selection_previous, -- move to prev result
+				["<C-j>"] = require("telescope.actions").move_selection_next, -- move to next result
+				["<C-q>"] = require("telescope.actions").smart_send_to_qflist
+					+ require("telescope.actions").open_qflist, -- send selected to quickfixlist
+			},
+		},
+	},
+})
+
+-- lspsaga
+require("lspsaga").setup({
+	-- keybinds for navigation in lspsaga window
+	scroll_preview = { scroll_down = "<C-f>", scroll_up = "<C-b>" },
+})
