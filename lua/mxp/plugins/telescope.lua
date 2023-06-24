@@ -1,25 +1,16 @@
-local telescope_setup, telescope = pcall(require, "telescope")
-if not telescope_setup then
-  return
-end
-
-local actions_setup, actions = pcall(require, "telescope.actions")
-if not actions_setup then
-  return 
-end
-
-telescope.setup({
-  -- configure custom mappings
-  defaults = {
-    mappings = {
-      i = {
-        ["<C-k>"] = actions.move_selection_previous, -- move to prev result
-        ["<C-j>"] = actions.move_selection_next, -- move to next result
-        ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist, -- send selected to quickfixlist
-      },
-    },
-  },
+require("telescope").setup({
+	-- configure custom mappings
+	defaults = {
+		mappings = {
+			-- ces raccourcis fonctionne en mode insert
+			i = {
+				["<C-k>"] = require("telescope.actions").move_selection_previous, -- move to prev result
+				["<C-j>"] = require("telescope.actions").move_selection_next, -- move to next result
+				["<C-q>"] = require("telescope.actions").smart_send_to_qflist
+					+ require("telescope.actions").open_qflist, -- send selected to quickfixlist
+			},
+		},
+	},
 })
 
-telescope.load_extension("fzf")
-
+require("telescope").load_extension("fzf")

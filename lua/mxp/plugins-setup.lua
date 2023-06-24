@@ -20,22 +20,30 @@ vim.cmd([[
   augroup end
 ]])
 
-local status, packer = pcall(require, "packer")
-if not status then
-	return
-end
-
 return require("packer").startup(function(use)
 	use("wbthomason/packer.nvim") -- packer se gere lui meme comme plugin
 	use("bluz71/vim-nightfly-guicolors") -- preferred colorscheme
-	use("christoomey/vim-tmux-navigator") -- gere tmux et la navigation entre les windows avec ctrl hjkl
-	use("szw/vim-maximizer") -- maximize et restore la fenetre courrante
-	use("tpope/vim-surround") -- pour gérer le surround par des caracteres speciaux
-	use("vim-scripts/ReplaceWithRegister") -- remplace un groupe de not par quelque chose du registre
-	use("numToStr/Comment.nvim") -- raccourci pour rajouter des commentaires avec gc
-	use("nvim-tree/nvim-tree.lua") -- gestionnaire de fichier
-	use("kyazdani42/nvim-web-devicons") -- un pack d'icone pour vim-tree
-	use("nvim-lualine/lualine.nvim") -- barre de neovim stylé
+	-- use("christoomey/vim-tmux-navigator") -- gere tmux et la navigation entre les windows avec ctrl hjkl
+	use("szw/vim-maximizer") -- maximize et restore la split windows
+	-- use("tpope/vim-surround") -- pour gérer le surround par des caracteres speciaux
+	-- use("vim-scripts/ReplaceWithRegister") -- remplace un groupe de not par quelque chose du registre
+	use({
+		"numToStr/Comment.nvim", -- raccourci pour rajouter des commentaires avec gc
+		config = function()
+			require("Comment").setup()
+		end,
+	})
+	use({
+		"nvim-tree/nvim-tree.lua", -- gestionnaire de fichier
+		requires = { { "kyazdani42/nvim-web-devicons" } }, -- un pack d'icone pour vim-tree
+	})
+	use({
+		"nvim-lualine/lualine.nvim", -- barre status neovim style
+		requires = {
+			{ "bluz71/vim-nightfly-guicolors" }, -- le theme associe
+			{ "kyazdani42/nvim-web-devicons" }, -- les icones de la barres
+		},
+	})
 	-- en prerequis il faut installer ripgrep
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" }) -- pour la recherche dans les fichiers
 	use({ "nvim-telescope/telescope.nvim", tag = "0.1.1", requires = { { "nvim-lua/plenary.nvim" } } }) -- telescope pour la recherche de fichier, il ya une dependenace a plenary pour les call async
@@ -51,7 +59,7 @@ return require("packer").startup(function(use)
 	use("hrsh7th/cmp-nvim-lsp") -- une sorte dextended completion
 	use({ "glepnir/lspsaga.nvim", branch = "main" }) -- ameliore lspconfig
 	-- il faut installer nerdfonts dans ~/.local/share/fonts pour que cela fonctionne correctement
-	use("onsails/lspkind.nvim") -- des icones a la vscode
+	use("onsails/lspkind.nvim") -- des icones a la vscode dans LSP
 	use("jose-elias-alvarez/null-ls.nvim") -- permet d'injecter du code non LSP via lua
 	use("jayp0521/mason-null-ls.nvim") -- bride entre mason et null-ls
 	use({
