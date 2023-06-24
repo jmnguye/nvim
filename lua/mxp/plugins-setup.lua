@@ -35,24 +35,28 @@ return require("packer").startup(function(use)
 	})
 	use({
 		"nvim-tree/nvim-tree.lua", -- gestionnaire de fichier
-		requires = { { "kyazdani42/nvim-web-devicons" } }, -- un pack d'icone pour vim-tree
+		requires = { "kyazdani42/nvim-web-devicons" }, -- un pack d'icone pour vim-tree
 	})
 	use({
 		"nvim-lualine/lualine.nvim", -- barre status neovim style
 		requires = {
-			{ "bluz71/vim-nightfly-guicolors" }, -- le theme associe
-			{ "kyazdani42/nvim-web-devicons" }, -- les icones de la barres
+			"bluz71/vim-nightfly-guicolors", -- le theme associe
+			"kyazdani42/nvim-web-devicons", -- les icones de la barres
 		},
 	})
 	-- en prerequis il faut installer ripgrep
-	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" }) -- pour la recherche dans les fichiers
+	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" }) -- pour la recherche dans les fichiers, avec un algo specifique
 	use({ "nvim-telescope/telescope.nvim", tag = "0.1.1", requires = { { "nvim-lua/plenary.nvim" } } }) -- telescope pour la recherche de fichier, il ya une dependenace a plenary pour les call async
-	use("hrsh7th/nvim-cmp") -- autocompletion
-	use("hrsh7th/cmp-buffer") -- permet de choisir des elements du buffer pour lautocompletion
-	use("hrsh7th/cmp-path") -- la meme qu'au dessus, mais avec des elements du path
-	use("L3MON4D3/LuaSnip") -- motor pour l'utilisation des snippets
-	use("saadparwaiz1/cmp_luasnip") -- l'autocompletion
-	use("rafamadriz/friendly-snippets") -- des snippets multi language
+	use({
+		"hrsh7th/nvim-cmp", -- autocompletion
+		requires = {
+			"L3MON4D3/LuaSnip", -- motor pour l'utilisation des snippets
+			"saadparwaiz1/cmp_luasnip", -- integre le plugin luasnip dans le sys de completion
+			"hrsh7th/cmp-buffer", -- permet de choisir des elements du buffer pour lautocompletion
+			"hrsh7th/cmp-path", -- la meme qu'au dessus, mais avec des elements du path
+			"rafamadriz/friendly-snippets", -- des snippets multi language
+		},
+	})
 	use("williamboman/mason.nvim") -- gestion et installation serveur lsp, linters et les formatters
 	use("williamboman/mason-lspconfig.nvim") -- fait le lien entre mason et nvim-lspconfig
 	use("neovim/nvim-lspconfig") -- configuration serveur lsp
