@@ -1,15 +1,7 @@
-local lspconfig_status, lspconfig = pcall(require, "lspconfig")
-if not lspconfig_status then
-	return
-end
-
-local cmp_nvim_lsp_status, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-if not cmp_nvim_lsp_status then
-	return
-end
+local lspconfig = require("lspconfig")
 
 -- used to enable autocompletion (assign to every lsp server config)
-local capabilities = cmp_nvim_lsp.default_capabilities()
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 -- Change the Diagnostic symbols in the sign column (gutter)
 local signs = { Error = " ", Warn = " ", Hint = "ﴞ ", Info = " " }
@@ -90,10 +82,3 @@ lspconfig["lua_ls"].setup({
 		},
 	},
 })
-
--- require("lsp_signature").setup({
--- 	bind = true, -- This is mandatory, otherwise border config won't get registered.
--- 	handler_opts = {
--- 		border = "rounded",
--- 	},
--- })

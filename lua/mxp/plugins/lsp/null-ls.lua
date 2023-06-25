@@ -1,9 +1,6 @@
-local setup, null_ls = pcall(require, "null-ls")
-if not setup then
-	return
-end
+local null_ls = require("null-ls")
 
--- for conciseness
+-- variable local facilitatrice
 local formatting = null_ls.builtins.formatting -- to setup formatters
 local diagnostics = null_ls.builtins.diagnostics -- to setup linters
 

@@ -19,10 +19,10 @@ opt.smartcase = true
 -- ligne du curseur
 opt.cursorline = true
 
--- apparence
+-- appearance
 opt.termguicolors = true
 opt.background = "light"
-opt.signcolumn = "yes" -- affiche la column des signes
+opt.signcolumn = "yes" -- affiche la column des signs
 
 -- backspace
 opt.backspace = "indent,eol,start"
@@ -34,4 +34,7 @@ opt.clipboard:append("unnamedplus")
 opt.splitright = true
 opt.splitbelow = true
 
-opt.iskeyword:append("-") -- rajoute le caractere - comme faisant partie d'un mot
+opt.iskeyword:append("-") -- rajoute le character - comme faisant partie d'un not
+
+-- element de completion
+opt.completeopt = "menu,menuone,noselect"

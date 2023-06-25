@@ -54,20 +54,20 @@ return require("packer").startup(function(use)
 			"saadparwaiz1/cmp_luasnip", -- integre le plugin luasnip dans le sys de completion
 			"hrsh7th/cmp-buffer", -- permet de choisir des elements du buffer pour lautocompletion
 			"hrsh7th/cmp-path", -- la meme qu'au dessus, mais avec des elements du path
+			"hrsh7th/cmp-nvim-lsp", -- une sorte dextended completion
 			"rafamadriz/friendly-snippets", -- des snippets multi language
 		},
 	})
 	use("williamboman/mason.nvim") -- gestion et installation serveur lsp, linters et les formatters
 	use("williamboman/mason-lspconfig.nvim") -- fait le lien entre mason et nvim-lspconfig
 	use("neovim/nvim-lspconfig") -- configuration serveur lsp
-	use("hrsh7th/cmp-nvim-lsp") -- une sorte dextended completion
 	use({ "glepnir/lspsaga.nvim", branch = "main" }) -- ameliore lspconfig
 	-- il faut installer nerdfonts dans ~/.local/share/fonts pour que cela fonctionne correctement
 	use("onsails/lspkind.nvim") -- des icones a la vscode dans LSP
 	use("jose-elias-alvarez/null-ls.nvim") -- permet d'injecter du code non LSP via lua
 	use("jayp0521/mason-null-ls.nvim") -- bride entre mason et null-ls
 	use({
-		"nvim-treesitter/nvim-treesitter", -- Highlight, edit, and navigate code
+		"nvim-treesitter/nvim-treesitter", -- Highlight, edit, and navigate code : parser de language
 		run = function()
 			local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
 			ts_update()
