@@ -49,6 +49,7 @@ map("n", "<leader>fg", "<cmd>Telescope live_grep<cr>") -- chercher du texte dans
 map("n", "<leader>fc", "<cmd>Telescope grep_string<cr>") -- cherche le contenu du texte sur lequel le curseur se situe dans le project
 map("n", "<leader>fb", "<cmd>Telescope buffers<cr>") -- montre le buffer actif
 map("n", "<leader>fh", "<cmd>Telescope help_tags<cr>")
+map("n", "<leader>??", "<cmd>Telescope keymaps<cr>")
 
 -- lspconfig
 map("n", "gh", "<cmd>Lspsaga lsp_finder<CR>") -- show definition, references
@@ -77,6 +78,19 @@ require("telescope").setup({
 		},
 	},
 })
+
+-- deburger
+map("n", "<leader>bp", "<cmd>DapToggleBreakpoint<CR>")
+map("n", "<leader>db", "<cmd>lua require('dap').continue()<CR>")
+--
+-- require("dap-python").setup({
+-- 		mappings = {
+-- 			n = {
+-- 				["<leader>dpr"] = require("dap-python").test_method(),
+-- 			},
+-- 		},
+--   }
+-- )
 
 -- lspsaga
 require("lspsaga").setup({

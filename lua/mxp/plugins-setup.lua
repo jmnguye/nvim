@@ -60,6 +60,7 @@ return require("packer").startup(function(use)
 	})
 	use("williamboman/mason.nvim") -- gestion et installation serveur lsp, linters et les formatters
 	use("williamboman/mason-lspconfig.nvim") -- fait le lien entre mason et nvim-lspconfig
+	use("jay-babu/mason-nvim-dap.nvim") -- plugin qui fait le lien entre mason et dap
 	use("neovim/nvim-lspconfig") -- configuration serveur lsp
 	use({ "glepnir/lspsaga.nvim", branch = "main" }) -- ameliore lspconfig
 	-- il faut installer nerdfonts dans ~/.local/share/fonts pour que cela fonctionne correctement
@@ -78,6 +79,19 @@ return require("packer").startup(function(use)
 	use("windwp/nvim-autopairs") -- autoclose parens, brackets, quotes, etc...
 	use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" }) -- autoclose tags
 	use("ray-x/lsp_signature.nvim") -- pour la signature des functions
+	use("mfussenegger/nvim-dap") -- debugging application procotole
+	use({
+		"mfussenegger/nvim-dap-python",
+		ft = "python",
+		requires = {
+			"mfussenegger/nvim-dap",
+			"rcarriga/nvim-dap-ui",
+		},
+		config = function(_, opts)
+			require("dap-python").setup("~/.virtualenvs/debugpy/bin/python")
+		end,
+	})
+	use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }) -- ui pour dap
 
 	-- met en place directement la config apres avoir clone packer.nvim
 	-- mettre ca a apres les lignes de chargement des plugins

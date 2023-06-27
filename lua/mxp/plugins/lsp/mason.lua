@@ -1,5 +1,11 @@
 require("mason").setup()
 
+require("mason-nvim-dap").setup({
+	ensure_installed = {
+		"python",
+	},
+})
+
 require("mason-lspconfig").setup({
 	-- la liste des serveurs que mason doit installer
 	ensure_installed = {
