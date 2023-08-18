@@ -82,12 +82,13 @@ return require("packer").startup(function(use)
 	use("mfussenegger/nvim-dap") -- debugging application procotole
 	use({
 		"mfussenegger/nvim-dap-python",
+		default = { justMyCode = false },
 		ft = "python",
 		requires = {
 			"mfussenegger/nvim-dap",
 			"rcarriga/nvim-dap-ui",
 		},
-		config = function(_, opts)
+		config = function(_)
 			require("dap-python").setup("~/.virtualenvs/debugpy/bin/python")
 		end,
 	})

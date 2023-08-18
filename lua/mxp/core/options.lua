@@ -38,3 +38,6 @@ opt.iskeyword:append("-") -- rajoute le character - comme faisant partie d'un no
 
 -- element de completion
 opt.completeopt = "menu,menuone,noselect"
+
+-- wrap word
+opt.wrap = true

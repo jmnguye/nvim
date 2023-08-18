@@ -21,10 +21,10 @@ map("n", "<leader>+", "<C-a>") -- incrementer
 map("n", "<leader>-", "<C-x>") -- decrementer
 
 -- gestion de la window
-map("n", "<leader>sv", "<C-w>v") -- split verticale
-map("n", "<leader>sh", "<C-w>s") -- split horizontal
-map("n", "<leader>se", "<C-w>e") -- egalise les split
-map("n", "<leader>sq", "<C-w>q") -- quitte le split
+-- <C-w>v" -- split verticale
+-- <C-w>s" -- split horizontal
+-- <C-w>e" -- egalise les split
+-- <C-w>q" -- quitte le split
 
 -- vim-maximizer
 map("n", "<leader>sz", ":MaximizerToggle<CR>")
@@ -35,10 +35,20 @@ map("n", "<leader>tq", ":tabclose<CR>") -- ferme un tab
 map("n", "<leader>tl", ":tabn<CR>") -- va au tab suivant
 map("n", "<leader>th", ":tabp<CR>") -- va au tab precedent
 
+-- gestion de ligne, ajout et suppression
+-- map("n", "<C-j>", "mzj:s/^\\s*\\n//i<CR>`z:noh<CR>")
+-- map("n", "<C-k>", "mzk:s/^\\s*\\n//i<CR>`z:noh<CR>")
+map("n", "<A-j>", ":set paste<CR>m`o<Esc>``:set nopaste<CR>")
+map("n", "<A-k>", ":set paste<CR>m`O<Esc>``:set nopaste<CR>")
+
 -- rajouter un nouvel commande autre qu'echape
 map("n", ";;", "<Esc>")
 map("i", ";;", "<Esc>")
 map("v", ";;", "<Esc>")
+map("s", ";;", "<Esc>") -- select mode maps
+map("x", ";;", "<Esc>") -- visual mode maps
+map("c", ";;", "<Esc>") -- command line
+map("o", ";;", "<Esc>") -- operator pending mode
 
 -- nvim-tree
 map("n", "<leader>e", ":NvimTreeToggle<CR>")
@@ -56,7 +66,7 @@ map("n", "gh", "<cmd>Lspsaga lsp_finder<CR>") -- show definition, references
 map("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>") -- got to declaration
 map("n", "gp", "<cmd>Lspsaga peek_definition<CR>") -- on voit la def dans une window
 map("n", "gd", "<cmd>Lspsaga goto_definition<CR>") -- on va a la def
-map("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>") -- see available code actions
+map("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>") -- see available code actions : la putin d'ampoule !!!
 map("n", "<leader>gn", "<cmd>Lspsaga rename<CR>") -- smart rename
 map("n", "<leader>d", "<cmd>Lspsaga show_line_diagnostics<CR>") -- show diagnostics for cursor
 map("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>") -- jump to previous diagnostic in buffer

@@ -171,7 +171,7 @@ _G.packer_plugins = {
     url = "https://github.com/mfussenegger/nvim-dap"
   },
   ["nvim-dap-python"] = {
-    config = { "\27LJ\2\n^\0\2\5\0\4\0\a6\2\0\0'\4\1\0B\2\2\0029\2\2\2'\4\3\0B\2\2\1K\0\1\0&~/.virtualenvs/debugpy/bin/python\nsetup\15dap-python\frequire\0" },
+    config = { "\27LJ\2\n^\0\1\4\0\4\0\a6\1\0\0'\3\1\0B\1\2\0029\1\2\1'\3\3\0B\1\2\1K\0\1\0&~/.virtualenvs/debugpy/bin/python\nsetup\15dap-python\frequire\0" },
     loaded = false,
     needs_bufread = false,
     only_cond = false,
